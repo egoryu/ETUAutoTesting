@@ -1,0 +1,261 @@
+.search-container {
+    position: relative;
+    display: inline-block;
+}
+
+.search-container input {
+    width: 300px;
+    height: 1.5rem;
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 1.5rem;
+    background-color: var(--card-background);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-container input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px var(--shadow-color);
+}
+
+.search-container::before {
+    content: "";
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2390caf9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.variants-page {
+    min-height: 100vh;
+    background: var(--background-color);
+    padding: 2rem;
+
+    .back-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 100;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 16px;
+}
+
+.page-title {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.instructions {
+    margin: 2rem 0;
+
+    h2 {
+        color: var(--text-color);
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        color: var(--text-color);
+        opacity: 0.8;
+    }
+}
+
+.table-container {
+    margin: 2rem 0;
+    overflow-x: auto;
+}
+
+.variants-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    background: var(--card-background);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px var(--shadow-color);
+
+    th, td {
+        padding: 12px 8px;
+        text-align: center;
+        border: 1px solid var(--border-color);
+    }
+
+    th {
+        background: var(--primary-color);
+        color: var(--text-color);
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+
+    td {
+        background: var(--card-background);
+        color: var(--text-color);
+        transition: background-color 0.3s ease;
+
+        &:first-child {
+            background: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        &:hover:not(:first-child) {
+            background: var(--accent-color);
+            color: var(--background-color);
+            cursor: pointer;
+        }
+    }
+}
+
+.preview-section {
+    margin: 3rem 0;
+
+    h2 {
+        color: var(--text-color);
+        margin-bottom: 0.5rem;
+    }
+}
+
+.preview-description {
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+}
+
+.carousel-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scroll-snap-align: start;
+
+    .variant-caption {
+        margin-top: 0.5rem;
+        color: var(--text-color);
+        font-weight: 600;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+}
+
+// Обновляем стили для .preview чтобы добавить hover эффект
+.preview {
+    flex: 0 0 12em;
+    aspect-ratio: 5 / 3;
+    background-color: var(--card-background);
+    border-radius: 0.5em;
+    text-align: center;
+    align-content: center;
+    scroll-snap-align: start;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px var(--shadow-color);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px var(--shadow-color);
+        border-color: var(--accent-color);
+    }
+
+    &::scroll-marker {
+        content: '';
+        height: 1em;
+        width: 1em;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+
+        &:target-current {
+            background-color: var(--secondary-color);
+        }
+    }
+}
+
+.description {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--card-background);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color);
+
+    h2 {
+        color: var(--text-color);
+        margin-bottom: 1rem;
+    }
+}
+
+.tags-info {
+    color: var(--text-color);
+
+    ul {
+        margin: 1rem 0;
+        padding-left: 1.5rem;
+    }
+
+    li {
+        margin: 0.5rem 0;
+        line-height: 1.5;
+    }
+
+    code {
+        background: var(--primary-color);
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        font-family: 'Courier New', monospace;
+        color: var(--accent-color);
+    }
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+    .variants-page {
+        padding: 1rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+        margin-top: 3rem;
+    }
+
+    .back-btn {
+        top: 10px;
+        left: 10px;
+    }
+
+    .variants-table {
+        font-size: 0.8rem;
+
+        th, td {
+            padding: 8px 4px;
+        }
+    }
+
+    .preview {
+        flex: 0 0 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .table-container {
+        margin: 1rem -1rem;
+    }
+
+    .variants-table {
+        min-width: 800px;
+    }
+}

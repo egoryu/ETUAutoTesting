@@ -1,0 +1,92 @@
+<div class="container">
+    <h1 class="page-title">Варианты заданий</h1>
+
+    <div class="instructions">
+        <h3>Есть два способа выбрать вариант:</h3>
+        <ol>
+            <li><strong>Быстрый ввод</strong> — введите номер (от 1 до 30) в поле ниже</li>
+            <li><strong>Визуальный выбор</strong> — найдите первую букву своей фамилии в таблице и нажмите на соответствующий номер</li>
+        </ol>
+    </div>
+
+    <div class="search-container">
+        <input type="text" placeholder="Введите номер варианта (1-30)" (change)="onSearch($event.target.value)"/>
+    </div>
+
+    <div class="table-container">
+        <table class="variants-table">
+            <thead>
+            <tr>
+                <th>Буква алфавита</th>
+                <th>А</th>
+                <th>Б</th>
+                <th>В</th>
+                <th>Г</th>
+                <th>Д</th>
+                <th>Е</th>
+                <th>Ж</th>
+                <th>З</th>
+                <th>И</th>
+                <th>К</th>
+                <th>Л</th>
+                <th>М</th>
+                <th>Н</th>
+                <th>О</th>
+                <th>П</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><strong>Номер варианта</strong></td>
+                @for (i of Array(15); track i;) {
+                    <td (click)="onSearch($index + 1)">{{ $index + 1 }}</td>
+                }
+            </tr>
+            </tbody>
+        </table>
+
+        <table class="variants-table">
+            <thead>
+            <tr>
+                <th>Буква алфавита</th>
+                <th>Р</th>
+                <th>С</th>
+                <th>Т</th>
+                <th>У</th>
+                <th>#</th>
+                <th>Ф</th>
+                <th>Х</th>
+                <th>Ц</th>
+                <th>Ч</th>
+                <th>Ш</th>
+                <th>Щ</th>
+                <th>Э</th>
+                <th>Ю</th>
+                <th>Я</th>
+                <th>#</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><strong>Номер варианта</strong></td>
+                @for (i of Array(15); track i;) {
+                    <td (click)="onSearch($index + 16)">{{ $index + 16 }}</td>
+                }
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <article class="description">
+        <h2>Описание использованных тэгов</h2>
+        <div class="tags-info">
+            <p>На этой странице используются следующие HTML5 тэги:</p>
+            <ul>
+                <li><code>&lt;table&gt;</code> - для отображения таблицы соответствия букв и номеров вариантов</li>
+                <li><code>&lt;article&gt;</code> - для семантического выделения описательной части</li>
+                <li><code>&lt;input&gt;</code> - для поля поиска вариантов</li>
+                <li><code>&lt;button&gt;</code> - для навигационной кнопки</li>
+            </ul>
+        </div>
+    </article>
+</div>

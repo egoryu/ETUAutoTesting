@@ -1,0 +1,39 @@
+<div id="variant-page-container">
+    <h1 id="variant-main-title" class="page-title">Вариант №{{ id }} - {{ variant.content.title }}</h1>
+
+    <blockquote id="variant-quote" class="quote">
+        <p>"{{ variant.content.quote.text }}"</p>
+        <footer id="quote-author">{{ variant.content.quote.author }}</footer>
+    </blockquote>
+
+    <h2 id="gallery-section-title" class="section-title">Галерея изображений</h2>
+
+    <div id="image-carousel" class="carousel">
+        @for (url of variant.imageUrls; track url; ) {
+            <img id="carousel-image-{{ $index }}" class="preview" [src]="url" [alt]="url"
+                 (click)="cardNavigate($index)"/>
+        }
+    </div>
+
+    <div id="text-content-block" class="content-block">
+        <div id="text-content-wrapper" class="text-content">
+            @for (paragraph of variant.content.paragraphs; track paragraph; ) {
+                <p id="paragraph-{{ $index }}">{{ paragraph }}</p>
+            }
+        </div>
+    </div>
+
+    <div id="cards-container" class="variants">
+        @for (card of variant.cards; track card.title) {
+            <etu-card id="card-{{ $index }}" class="card" [card]="card"></etu-card>
+        }
+    </div>
+
+    <div id="content-divider" class="divider"></div>
+
+    <a id="wikipedia-link" [href]="variant.content.wikipediaLink || 'https://ru.wikipedia.org/wiki'"
+       class="wikipedia-link" target="_blank"
+       rel="noopener noreferrer">
+        {{ variant.content.linkText || 'Узнать больше на Википедии' }}
+    </a>
+</div>

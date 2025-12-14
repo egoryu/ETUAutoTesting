@@ -1,0 +1,23 @@
+<article class="card">
+    <div class="card-header">
+        <h3 class="title">{{ card.title }}</h3>
+    </div>
+
+    <div class="image-container">
+        <img
+            [src]="card.imageUrl"
+            [alt]="card.title"
+            class="image"
+            loading="lazy"
+        />
+    </div>
+
+    <div class="card-content">
+        <p class="description">{{ card.description }}</p>
+        @if (card.category) {
+            <div class="meta">
+                <span class="category">{{ card.category }}</span>
+            </div>
+        }
+    </div>
+</article>
