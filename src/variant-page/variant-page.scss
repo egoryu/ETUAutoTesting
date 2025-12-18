@@ -87,8 +87,10 @@
 
 .preview {
     flex: 0 0 12em;
-    min-width: 15em;
-    min-height: 15em;
+    min-width: 16em;
+    min-height: 16em;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
     background-color: var(--card-background);
     border-radius: 0.5em;
     text-align: center;
