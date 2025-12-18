@@ -8,26 +8,19 @@ interface Variant {
 
 @Component({
     selector: 'etu-home',
-    imports: [
-        RouterLink
-    ],
     standalone: true,
     templateUrl: './home-page.html',
     styleUrl: './home-page.scss'
 })
 export class HomePage {
-    variants: Variant[] = [
-        { name: 'Планеты', url: '1 - planets/earth.png' },
-    ];
+    protected readonly Array = Array;
 
     constructor(private router: Router) {
     }
-    
+
     onSearch(event: any): void {
         this.router.navigate(['/variant'], {
             queryParams: { id: event }
         });
     }
-
-    protected readonly Array = Array;
 }

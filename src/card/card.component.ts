@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Card} from '../variant-page/consts';
+import {Card} from '../consts';
 
 @Component({
     selector: 'etu-card',

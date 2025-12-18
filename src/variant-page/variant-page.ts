@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {CardComponent} from '../card/card.component';
 import {ActivatedRoute, Router} from '@angular/router';
-import {variants} from './consts';
+import {variants} from '../consts';
 
 @Component({
     selector: 'st-variant-page',
