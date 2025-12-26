@@ -13,7 +13,7 @@ import {variants} from '../consts';
     styleUrl: './variant-page.scss'
 })
 export class VariantPage {
-    public id: string = '';
+    public id: number = 0;
     public variant = variants[0];
 
 
@@ -21,8 +21,9 @@ export class VariantPage {
         private router: Router,
         private route: ActivatedRoute
     ) {
-        this.id = this.route.snapshot.queryParams['id'];
-        this.variant = variants[+this.id - 1 || 0];
+        this.id = +this.route.snapshot.queryParams['id'] || 0;
+        this.id = Math.min(Math.max(1, this.id), 31);
+        this.variant = variants[this.id - 1 || 0];
     }
 
     public cardNavigate(id: number): void {

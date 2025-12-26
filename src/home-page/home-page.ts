@@ -18,9 +18,10 @@ export class HomePage {
     constructor(private router: Router) {
     }
 
-    onSearch(event: any): void {
+    onSearch(id: any): void {
+        id = Math.min(Math.max(1, id), 31);
         this.router.navigate(['/variant'], {
-            queryParams: { id: event }
+            queryParams: { id }
         });
     }
 }

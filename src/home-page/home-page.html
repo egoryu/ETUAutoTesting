@@ -4,13 +4,13 @@
     <div class="instructions">
         <h3>Есть два способа выбрать вариант:</h3>
         <ol>
-            <li><strong>Быстрый ввод</strong> — введите номер (от 1 до 30) в поле ниже</li>
+            <li><strong>Быстрый ввод</strong> — введите номер (от 1 до 31) в поле ниже</li>
             <li><strong>Визуальный выбор</strong> — найдите первую букву своей фамилии в таблице и нажмите на соответствующий номер</li>
         </ol>
     </div>
 
     <div class="search-container">
-        <input type="text" placeholder="Введите номер варианта (1-30)" (change)="onSearch($event.target.value)"/>
+        <input type="text" placeholder="Введите номер варианта (1-31)" (change)="onSearch($event.target.value)"/>
     </div>
 
     <div class="table-container">
@@ -64,12 +64,13 @@
                 <th>Ю</th>
                 <th>Я</th>
                 <th>#</th>
+                <th>#</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <td><strong>Номер варианта</strong></td>
-                @for (i of Array(15); track i;) {
+                @for (i of Array(16); track i;) {
                     <td (click)="onSearch($index + 16)">{{ $index + 16 }}</td>
                 }
             </tr>
